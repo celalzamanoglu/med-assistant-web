@@ -58,6 +58,13 @@ const config: Config = {
       },
     }),
   ],
+  layer: {
+    base: {
+      'h1, h2, h3, h4, h5, h6': {
+        color: 'hsl(var(--foreground))',
+      },
+    },
+  },
 };
 
 export default config;

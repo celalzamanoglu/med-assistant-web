@@ -1,10 +1,11 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
+import { useTheme } from "next-themes";
 import { Switch } from "@nextui-org/react";
-import { SunIcon } from "./SunIcon";
-import { MoonIcon } from "./MoonIcon";
+
+import { SunIcon, MoonIcon } from "@components";
 
 export function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);

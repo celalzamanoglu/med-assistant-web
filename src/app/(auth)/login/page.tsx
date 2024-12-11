@@ -12,14 +12,18 @@ import {
   Link,
   Divider,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
-import { ThemeSwitch } from "@/components/ThemeSwitch";
-import { EmailIcon } from "@/components/EmailIcon";
-import { LockIcon } from "@/components/LockIcon";
-import { EyeIcon } from "@/components/EyeIcon";
-import { EyeSlashIcon } from "@/components/EyeSlashIcon";
+import {
+  ThemeSwitch,
+  EmailIcon,
+  LockIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@components";
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
@@ -58,6 +62,10 @@ export default function Login() {
       email: data.email,
       password: data.password,
     });
+
+    // Mock authentication
+    localStorage.setItem("isAuthenticated", "true");
+    router.push("/"); // Redirect to home page
   };
 
   return (
