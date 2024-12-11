@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, ScrollShadow } from "@nextui-org/react";
-import { ChatItem } from "@/components";
+import { Card, ScrollShadow, Button } from "@nextui-org/react";
+import { ChatItem, PlusIcon } from "@/components";
 
 // Mock data for previous conversations
 const mockChats = [
@@ -28,6 +28,13 @@ export function DrawerNavigation() {
       </div>
       <ScrollShadow className="h-full">
         <div className="p-4 space-y-2">
+          <Button
+            startContent={<PlusIcon />}
+            color="primary"
+            className="w-full mb-6"
+          >
+            Yeni Ziyaret
+          </Button>
           <h2 className="text-sm font-semibold text-default-500 mb-4">
             Önceki Görüşmeler
           </h2>

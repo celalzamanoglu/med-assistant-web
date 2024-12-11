@@ -18,7 +18,7 @@ export function ChatItem({ patientName, symptom, date }: ChatItemProps) {
   return (
     <Card
       isPressable
-      className="bg-default-100 hover:bg-default-200 transition-colors"
+      className="bg-default-100 hover:bg-default-200 transition-colors w-full"
     >
       <CardBody className="py-2 px-4">
         <h3 className="font-medium">{patientName}</h3>

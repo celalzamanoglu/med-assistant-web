@@ -9,3 +9,4 @@ export { MoonIcon } from './MoonIcon';
 export { SunIcon } from './SunIcon';
 export { ThemeSwitch } from './ThemeSwitch';
 export { UserMenu } from './UserMenu'; 
+export { PlusIcon } from './PlusIcon';
