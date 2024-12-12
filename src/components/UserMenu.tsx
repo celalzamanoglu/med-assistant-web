@@ -48,7 +48,7 @@ export function UserMenu() {
         <DropdownItem
           key="logout"
           color="danger"
-          onClick={handleLogout}
+          onPress={handleLogout}
           className="text-danger"
         >
           Çıkış Yap
