@@ -16,3 +16,4 @@ export { SearchIcon } from './icons/SearchIcon';
 export { MicIcon } from './icons/MicIcon';
 export { UploadIcon } from './icons/UploadIcon';
 export { ChatIcon } from './icons/ChatIcon';
+export { SessionDrawer } from './SessionDrawer';
