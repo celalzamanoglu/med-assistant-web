@@ -14,13 +14,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-const noteTypes = [
-  "SOAP",
-  "DAP",
-  "Theraphy Intake",
-  "Psychiatric Intake",
-  "Consult Note",
-];
+const noteTypes = ["SOAP", "DAP", "Consult Note"];
 
 const locations = [
   { label: "Online", value: "online" },
@@ -63,9 +57,9 @@ export function SessionDrawer({ isOpen, onOpenChange }: SessionDrawerProps) {
             <Tabs
               aria-label="Note Types"
               classNames={{
-                tabList: "w-full relative",
+                tabList: "w-full relative gap-14",
                 cursor: "w-full",
-                tab: "max-w-fit h-10 px-1",
+                tab: "max-w-fit h-10 px-8",
                 tabContent: "group-data-[selected=true]:text-primary",
               }}
             >

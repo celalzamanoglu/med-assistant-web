@@ -1,52 +1,42 @@
 "use client";
 
-import { Button, useDisclosure } from "@nextui-org/react";
-import { MicIcon, ChatIcon, SessionDrawer } from "@components";
+import { Button } from "@nextui-org/react";
+import { MicIcon, UploadIcon, ChatIcon } from "@components";
 
-export function SessionControls() {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const handleOpen = () => {
-    onOpen();
-  };
-  const onPressCapture = () => {
-    handleOpen();
-  };
-  const onPressDictate = () => {
-    handleOpen();
-  };
-  const onPressDescribe = () => {
-    handleOpen();
-  };
+interface SessionControlsProps {
+  onOpen: () => void;
+}
+
+export function SessionControls({ onOpen }: SessionControlsProps) {
   return (
     <div className="space-y-4">
-      {/* Save Session Button */}
-      <Button
-        color="primary"
-        size="lg"
-        className="w-full"
-        onPress={onPressCapture}
-      >
+      <Button color="primary" size="lg" className="w-full" onClick={onOpen}>
         Seansı Kaydet
       </Button>
 
-      {/* Control Buttons */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         <Button
           variant="flat"
           startContent={<MicIcon className="w-4 h-4" />}
-          onPress={onPressDictate}
+          onClick={onOpen}
         >
           Dikte
         </Button>
         <Button
           variant="flat"
+          startContent={<UploadIcon className="w-4 h-4" />}
+          onClick={onOpen}
+        >
+          Yükle
+        </Button>
+        <Button
+          variant="flat"
           startContent={<ChatIcon className="w-4 h-4" />}
-          onPress={onPressDescribe}
+          onClick={onOpen}
         >
           Anlat
         </Button>
       </div>
-      <SessionDrawer isOpen={isOpen} onOpenChange={onOpenChange} />
     </div>
   );
 }

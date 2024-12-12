@@ -1,8 +1,14 @@
 "use client";
 
 import React from "react";
-import { Header, PatientsList, SessionControls } from "@components";
+import {
+  Header,
+  PatientsList,
+  SessionControls,
+  SessionDrawer,
+} from "@components";
 import { useAuth } from "@/hooks/useAuth";
+import { useDisclosure } from "@nextui-org/react";
 
 export default function DashboardLayout({
   children,
@@ -10,6 +16,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { isAuthenticated } = useAuth();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   if (isAuthenticated === null || !isAuthenticated) {
     return null;
@@ -21,17 +28,14 @@ export default function DashboardLayout({
         <Header />
         <div className="flex flex-1">
           {/* Left Section - 1/4 width */}
-          <div className="w-1/4 border-r border-divider">
-            {/* Split into two sections */}
-            <div className="h-full flex flex-col">
-              {/* Patients List - Top 3/4 */}
-              <div className="flex-1 p-4 border-b border-divider">
-                <PatientsList />
-              </div>
-              {/* Session Controls - Bottom 1/4 */}
-              <div className="p-4">
-                <SessionControls />
-              </div>
+          <div className="w-1/4 border-r border-divider flex flex-col">
+            {/* Session Controls - Top */}
+            <div className="p-4 border-b border-divider">
+              <SessionControls onOpen={onOpen} />
+            </div>
+            {/* Patients List - Bottom */}
+            <div className="flex-1 p-4 overflow-auto">
+              <PatientsList />
             </div>
           </div>
 
@@ -41,6 +45,7 @@ export default function DashboardLayout({
           </div>
         </div>
       </div>
+      <SessionDrawer isOpen={isOpen} onOpenChange={onOpenChange} />
     </>
   );
 }
