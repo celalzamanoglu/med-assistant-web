@@ -23,12 +23,12 @@ export function ThemeSwitch() {
   return (
     <div className="flex items-center">
       <Switch
-        defaultSelected={theme === "dark"}
+        defaultSelected={theme === "light"}
         size="lg"
         color="primary"
-        startContent={<SunIcon />}
+        startContent={<SunIcon color="white" />}
         endContent={<MoonIcon />}
-        onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+        onChange={(e) => setTheme(e.target.checked ? "light" : "dark")}
       />
     </div>
   );
