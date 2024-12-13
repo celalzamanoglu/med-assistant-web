@@ -21,3 +21,4 @@ export { AudioWaveIcon } from './icons/AudioWaveIcon';
 export { UserGuide } from './UserGuide';
 export { PatientsListItem } from './PatientsListItem';
 export { PatientDrawer } from './PatientDrawer';
+export { NoteIcon } from './icons/NoteIcon';

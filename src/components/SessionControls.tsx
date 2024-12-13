@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { MicIcon, ChatIcon, AudioWaveIcon } from "@components";
+import { MicIcon, NoteIcon, AudioWaveIcon } from "@components";
 
 interface SessionControlsProps {
   onOpen: () => void;
@@ -44,10 +44,10 @@ export function SessionControls({
         </Button>
         <Button
           variant="flat"
-          startContent={<ChatIcon className="w-4 h-4" />}
+          startContent={<NoteIcon className="w-4 h-4" />}
           onPress={handleManualClick}
         >
-          Anlat
+          Not
         </Button>
       </div>
     </div>
