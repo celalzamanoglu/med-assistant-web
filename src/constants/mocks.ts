@@ -28,7 +28,7 @@ export const mockSessions: Session[] = [
     status: "error",
     diagnosis: "Major Depresyon",
     title: "Takip Seansı",
-    content: "İlaç tedavisine olumlu yanıt alınıyor. Uyku düzeni iyileşme göstermeye başladı...",
+    content: "Seans kaydedilirken bir hata oluştu...",
     created_at: new Date("2024-03-14T15:30:00"),
     updated_at: new Date("2024-03-14T16:15:00"),
   },

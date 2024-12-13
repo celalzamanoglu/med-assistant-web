@@ -12,9 +12,9 @@ const TypeIcon = {
 
 const StatusChip = {
   in_progress: { color: "primary" as const, text: "Devam Ediyor" },
-  error: { color: "danger" as const, text: "Seans İptal Edildi" },
+  error: { color: "danger" as const, text: "İptal Edildi" },
   done: { color: "success" as const, text: "Tamamlandı" },
-  stopped: { color: "warning" as const, text: "Durduruldu" },
+  stopped: { color: "warning" as const, text: "Beklemede" },
   generating: { color: "secondary" as const, text: "Notlar Oluşturuluyor" },
 };
 
