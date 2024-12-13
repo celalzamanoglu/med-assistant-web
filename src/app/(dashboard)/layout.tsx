@@ -47,9 +47,9 @@ export default function DashboardLayout({
             href="mailto:support@medassistant.com"
             className="text-sm text-default-500 hover:text-primary transition-colors"
           >
-            Destek veya bildirimlerinizi
+            Destek veya geri bildirimleriniz için
             <span className="font-semibold mx-1 text-primary">buradan</span>
-            bize iletebilirsiniz
+            bize ulaşabilirsiniz
           </Link>
         </div>
       </div>
