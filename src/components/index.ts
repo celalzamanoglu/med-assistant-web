@@ -18,3 +18,4 @@ export { UploadIcon } from './icons/UploadIcon';
 export { ChatIcon } from './icons/ChatIcon';
 export { SessionDrawer } from './SessionDrawer';
 export { AudioWaveIcon } from './icons/AudioWaveIcon';
+export { UserGuide } from './UserGuide';
