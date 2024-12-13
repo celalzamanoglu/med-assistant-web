@@ -70,6 +70,7 @@ export function SessionDrawer({
                 label="Lokasyon"
                 placeholder="Lokasyon seçin"
                 labelPlacement="outside"
+                defaultSelectedKeys={["in_person"]}
               >
                 {locations.map((location) => (
                   <SelectItem key={location.value} value={location.value}>
