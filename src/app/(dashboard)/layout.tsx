@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Header,
   PatientsList,
@@ -10,6 +10,8 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import { useDisclosure } from "@nextui-org/react";
 
+type DrawerMode = "record" | "manual";
+
 export default function DashboardLayout({
   children,
 }: {
@@ -17,6 +19,7 @@ export default function DashboardLayout({
 }) {
   const { isAuthenticated } = useAuth();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [drawerMode, setDrawerMode] = useState<DrawerMode>("record");
 
   if (isAuthenticated === null || !isAuthenticated) {
     return null;
@@ -27,25 +30,24 @@ export default function DashboardLayout({
       <div className="min-h-screen flex flex-col">
         <Header />
         <div className="flex flex-1">
-          {/* Left Section - 1/4 width */}
           <div className="w-1/4 border-r border-divider flex flex-col">
-            {/* Session Controls - Top */}
             <div className="p-4 border-b border-divider">
-              <SessionControls onOpen={onOpen} />
+              <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
             </div>
-            {/* Patients List - Bottom */}
             <div className="flex-1 p-4 overflow-auto">
               <PatientsList />
             </div>
           </div>
-
-          {/* Main Content - 3/4 width */}
           <div className="w-3/4">
             <main className="p-6">{children}</main>
           </div>
         </div>
       </div>
-      <SessionDrawer isOpen={isOpen} onOpenChange={onOpenChange} />
+      <SessionDrawer
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        mode={drawerMode}
+      />
     </>
   );
 }

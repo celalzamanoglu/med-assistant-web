@@ -12,6 +12,7 @@ import {
   Select,
   SelectItem,
   Button,
+  Textarea,
 } from "@nextui-org/react";
 
 const noteTypes = ["SOAP", "DAP", "Consult Note"];
@@ -22,11 +23,16 @@ const locations = [
 ];
 
 interface SessionDrawerProps {
+  mode?: "record" | "manual";
   isOpen: boolean;
   onOpenChange: () => void;
 }
 
-export function SessionDrawer({ isOpen, onOpenChange }: SessionDrawerProps) {
+export function SessionDrawer({
+  mode = "record",
+  isOpen,
+  onOpenChange,
+}: SessionDrawerProps) {
   return (
     <Drawer
       isOpen={isOpen}
@@ -65,28 +71,46 @@ export function SessionDrawer({ isOpen, onOpenChange }: SessionDrawerProps) {
             </h3>
 
             <Input
+              isClearable
               label="Hasta İsmi"
               placeholder="Hasta ismini girin"
               labelPlacement="outside"
+              variant="faded"
             />
 
             <Input
+              isClearable
               label="Başlık"
               placeholder="Başlık girin"
               labelPlacement="outside"
+              variant="faded"
             />
 
-            <Select
-              label="Lokasyon"
-              placeholder="Lokasyon seçin"
-              labelPlacement="outside"
-            >
-              {locations.map((location) => (
-                <SelectItem key={location.value} value={location.value}>
-                  {location.label}
-                </SelectItem>
-              ))}
-            </Select>
+            {mode === "record" && (
+              <Select
+                variant="faded"
+                label="Lokasyon"
+                placeholder="Lokasyon seçin"
+                labelPlacement="outside"
+              >
+                {locations.map((location) => (
+                  <SelectItem key={location.value} value={location.value}>
+                    {location.label}
+                  </SelectItem>
+                ))}
+              </Select>
+            )}
+
+            {mode === "manual" && (
+              <Textarea
+                label="Notlarınız"
+                placeholder="Seans notlarınızı buraya yazın..."
+                labelPlacement="outside"
+                minRows={8}
+                className="mt-6"
+                variant="faded"
+              />
+            )}
           </div>
         </DrawerBody>
         <DrawerFooter className="border-t border-divider">
