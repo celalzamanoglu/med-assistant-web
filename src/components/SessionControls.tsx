@@ -13,8 +13,8 @@ export function SessionControls({ onOpen }: SessionControlsProps) {
       <Button
         color="primary"
         size="lg"
-        className="w-full"
-        onClick={onOpen}
+        className="w-full h-16"
+        onPress={onOpen}
         startContent={<AudioWaveIcon className="w-5 h-5" />}
       >
         Seans Kaydet
