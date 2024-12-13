@@ -1,5 +1,14 @@
 import { Session } from "@/declarations";
 
+export const mockPatients = [
+  { id: 1, name: "Ayşe Kaya" },
+  { id: 2, name: "Mehmet Demir" },
+  { id: 3, name: "Zeynep Yılmaz" },
+  { id: 4, name: "Ahmet Yıldız" },
+  { id: 5, name: "Can Öztürk" },
+  { id: 6, name: "Elif Şahin" },
+];
+
 export const mockSessions: Session[] = [
   {
     id: "1",
@@ -67,4 +76,4 @@ export const mockSessions: Session[] = [
     created_at: new Date("2024-03-16T09:00:00"),
     updated_at: new Date("2024-03-16T09:30:00"),
   },
-]; 
+] as const; 

@@ -8,16 +8,7 @@ import {
   PlusIcon,
   SearchIcon,
 } from "@components";
-
-// Mock data for patients
-const mockPatients = [
-  { id: 1, name: "Ayşe Kaya" },
-  { id: 2, name: "Mehmet Demir" },
-  { id: 3, name: "Zeynep Yılmaz" },
-  { id: 4, name: "Ahmet Yıldız" },
-  { id: 5, name: "Can Öztürk" },
-  { id: 6, name: "Elif Şahin" },
-];
+import { mockPatients } from "@/constants/mocks";
 
 export function PatientsList() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);

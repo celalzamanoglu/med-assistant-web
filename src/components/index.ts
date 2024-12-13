@@ -1,5 +1,4 @@
 export { ChatItem } from './ChatItem';
-export { DrawerNavigation } from './DrawerNavigation';
 export { EmailIcon } from './icons/EmailIcon';
 export { EyeIcon } from './icons/EyeIcon';
 export { EyeSlashIcon } from './icons/EyeSlashIcon';

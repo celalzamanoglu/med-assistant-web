@@ -2,7 +2,7 @@
 
 import { UserGuide } from "@components";
 import { SessionItem } from "@/components/SessionItem";
-import { mockSessions } from "@/constants";
+import { mockSessions } from "@/constants/mocks";
 
 export default function DashboardPage() {
   const hasSessions = mockSessions.length > 0;
