@@ -17,6 +17,7 @@ const avatarColors = [
 
 interface PatientsListItemProps {
   name: string;
+  layout?: "horizontal" | "vertical";
 }
 
 function getInitials(name: string) {
@@ -28,18 +29,30 @@ function getInitials(name: string) {
 }
 
 function getRandomColor(name: string) {
-  // Use the name string to generate a consistent index for the same name
   const total = name
     .split("")
     .reduce((acc, char) => acc + char.charCodeAt(0), 0);
   return avatarColors[total % avatarColors.length];
 }
 
-export function PatientsListItem({ name }: PatientsListItemProps) {
+export function PatientsListItem({
+  name,
+  layout = "vertical",
+}: PatientsListItemProps) {
+  const isHorizontal = layout === "horizontal";
   const bgColor = getRandomColor(name);
 
   return (
-    <button className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-default-100 transition-colors">
+    <button
+      className={`
+        flex items-center gap-3 
+        ${
+          isHorizontal
+            ? "flex-col p-2 hover:bg-default-100 rounded-lg transition-colors min-w-[80px]"
+            : "w-full p-2 rounded-lg hover:bg-default-100 transition-colors"
+        }
+      `}
+    >
       <Avatar
         name={getInitials(name)}
         size="sm"
@@ -48,7 +61,13 @@ export function PatientsListItem({ name }: PatientsListItemProps) {
           name: "text-default-800 dark:text-white text-small font-medium",
         }}
       />
-      <span className="text-sm text-default-900">{name}</span>
+      <span
+        className={`text-sm text-default-900 ${
+          isHorizontal ? "text-center" : ""
+        }`}
+      >
+        {name}
+      </span>
     </button>
   );
 }

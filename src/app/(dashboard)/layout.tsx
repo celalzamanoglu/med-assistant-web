@@ -29,20 +29,39 @@ export default function DashboardLayout({
     <>
       <div className="min-h-screen flex flex-col">
         <Header />
-        <div className="flex flex-1">
+
+        {/* Mobile Controls */}
+        <div className="md:hidden border-b border-divider">
+          <div className="p-4">
+            <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
+          </div>
+          <div className="px-4 pb-4">
+            <PatientsList layout="horizontal" />
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden md:flex flex-1">
           <div className="w-1/4 border-r border-divider flex flex-col">
             <div className="p-4 border-b border-divider">
               <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
             </div>
             <div className="flex-1 p-4 overflow-auto">
-              <PatientsList />
+              <PatientsList layout="vertical" />
             </div>
           </div>
           <div className="w-3/4">
             <main className="p-6">{children}</main>
           </div>
         </div>
-        <div className="fixed bottom-4 left-4">
+
+        {/* Mobile Main Content */}
+        <div className="md:hidden flex-1">
+          <main className="p-4">{children}</main>
+        </div>
+
+        {/* Contact Us CTA */}
+        <div className="fixed bottom-4 left-4 z-30">
           <Link
             href="mailto:support@medassistant.com"
             className="text-sm text-default-500 hover:text-primary transition-colors"
