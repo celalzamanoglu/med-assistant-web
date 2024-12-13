@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { MicIcon, ChatIcon } from "@components";
+import { MicIcon, ChatIcon, AudioWaveIcon } from "@components";
 
 interface SessionControlsProps {
   onOpen: () => void;
@@ -10,7 +10,13 @@ interface SessionControlsProps {
 export function SessionControls({ onOpen }: SessionControlsProps) {
   return (
     <div className="space-y-4">
-      <Button color="primary" size="lg" className="w-full" onClick={onOpen}>
+      <Button
+        color="primary"
+        size="lg"
+        className="w-full"
+        onClick={onOpen}
+        startContent={<AudioWaveIcon className="w-5 h-5" />}
+      >
         Seans Kaydet
       </Button>
 
