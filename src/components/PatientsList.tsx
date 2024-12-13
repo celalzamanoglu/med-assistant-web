@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Input, Button, ScrollShadow } from "@nextui-org/react";
+import { Input, Button, ScrollShadow, Link } from "@nextui-org/react";
 import {
   PatientsListItem,
   PatientDrawer,
@@ -71,6 +71,18 @@ export function PatientsList({ layout = "vertical" }: PatientsListProps) {
               ))}
             </div>
           </ScrollShadow>
+        )}
+
+        {/* Contact Us Link - Only show in vertical layout */}
+        {!isHorizontal && (
+          <div className="mt-auto pt-4 border-t border-divider">
+            <Link
+              href="mailto:support@medassistant.com"
+              className="text-sm text-default-500 hover:text-primary transition-colors"
+            >
+              Destek için iletişime geçin
+            </Link>
+          </div>
         )}
       </div>
 

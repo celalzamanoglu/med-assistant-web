@@ -138,7 +138,7 @@ export function PatientDrawer({
               min={0}
               max={150}
             />
-            <div className="flex-[2]">
+            <div className="flex-[2] mt-[-2]">
               <DatePicker
                 label="Doğum Tarihi"
                 value={birthDate}

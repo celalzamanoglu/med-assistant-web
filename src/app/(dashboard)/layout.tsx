@@ -8,7 +8,7 @@ import {
   SessionDrawer,
 } from "@components";
 import { useAuth } from "@/hooks/useAuth";
-import { useDisclosure, Link } from "@nextui-org/react";
+import { useDisclosure } from "@nextui-org/react";
 
 type DrawerMode = "record" | "manual";
 
@@ -58,18 +58,6 @@ export default function DashboardLayout({
         {/* Mobile Main Content */}
         <div className="md:hidden flex-1">
           <main className="p-4">{children}</main>
-        </div>
-
-        {/* Contact Us CTA */}
-        <div className="fixed bottom-4 left-4 z-30">
-          <Link
-            href="mailto:support@medassistant.com"
-            className="text-sm text-default-500 hover:text-primary transition-colors"
-          >
-            Destek veya geri bildirimleriniz için
-            <span className="font-semibold mx-1 text-primary">buradan</span>
-            bize ulaşabilirsiniz
-          </Link>
         </div>
       </div>
       <SessionDrawer
