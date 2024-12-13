@@ -2,14 +2,21 @@
 
 import { useState } from "react";
 import { Input, Button } from "@nextui-org/react";
-import { PatientsListItem, PlusIcon, SearchIcon } from "@components";
-import { PatientDrawer } from "./PatientDrawer";
+import {
+  PatientsListItem,
+  PatientDrawer,
+  PlusIcon,
+  SearchIcon,
+} from "@components";
 
 // Mock data for patients
 const mockPatients = [
   { id: 1, name: "Ayşe Kaya" },
   { id: 2, name: "Mehmet Demir" },
-  { id: 3, name: "Fatma Yılmaz" },
+  { id: 3, name: "Zeynep Yılmaz" },
+  { id: 4, name: "Ahmet Yıldız" },
+  { id: 5, name: "Can Öztürk" },
+  { id: 6, name: "Elif Şahin" },
 ];
 
 export function PatientsList() {

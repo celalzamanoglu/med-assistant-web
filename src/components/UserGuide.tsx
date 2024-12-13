@@ -6,10 +6,7 @@ export function UserGuide() {
   return (
     <div className="w-full">
       <div className="max-w-2xl mb-8">
-        <h1 className="text-2xl font-bold text-foreground mb-4">
-          Hoş Geldiniz
-        </h1>
-        <p className="text-default-500">
+        <p className="text-default-500 mt-[-1rem]">
           Aşağıdaki adımları takip ederek hasta görüşmelerinizden profesyonel
           tıbbi raporlar oluşturmaya hemen başlayabilirsiniz.
         </p>
