@@ -1,4 +1,11 @@
-export const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => {
+interface PlusIconProps extends React.SVGProps<SVGSVGElement> {
+  color?: string;
+}
+
+export const PlusIcon = ({
+  color = "currentColor",
+  ...props
+}: PlusIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +13,7 @@ export const PlusIcon = (props: React.SVGProps<SVGSVGElement>) => {
       height="24"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke={color}
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

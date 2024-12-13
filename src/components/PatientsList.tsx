@@ -20,7 +20,7 @@ export function PatientsList() {
         <Button
           size="sm"
           color="primary"
-          startContent={<PlusIcon className="w-4 h-4" />}
+          startContent={<PlusIcon color="white" className="w-4 h-4" />}
         >
           Hasta Ekle
         </Button>
