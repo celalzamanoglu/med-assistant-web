@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   Drawer,
   DrawerContent,
@@ -10,7 +11,9 @@ import {
   Select,
   SelectItem,
   Button,
+  DatePicker,
 } from "@nextui-org/react";
+import { parseDate, CalendarDate } from "@internationalized/date";
 
 interface PatientDrawerProps {
   isOpen: boolean;
@@ -39,6 +42,8 @@ const genders = [
   { label: "Diğer", value: "other" },
 ];
 
+const currentYear = new Date().getFullYear();
+
 export function PatientDrawer({
   isOpen,
   onOpenChange,
@@ -47,6 +52,29 @@ export function PatientDrawer({
 }: PatientDrawerProps) {
   const isEditMode = mode === "edit";
   const title = isEditMode ? "Hasta Düzenle" : "Yeni Hasta";
+
+  const [age, setAge] = useState<string>(initialData?.age?.toString() || "");
+  const [birthDate, setBirthDate] = useState<CalendarDate | null>(null);
+
+  // Update birth date when age changes
+  const handleAgeChange = (value: string) => {
+    setAge(value);
+    if (value && !isNaN(Number(value))) {
+      const year = currentYear - Number(value);
+      setBirthDate(parseDate(`${year}-01-01`));
+    }
+  };
+
+  // Update age when birth date changes
+  const handleBirthDateChange = (date: CalendarDate | null) => {
+    setBirthDate(date);
+    if (date) {
+      const calculatedAge = currentYear - date.year;
+      setAge(calculatedAge.toString());
+    } else {
+      setAge("");
+    }
+  };
 
   return (
     <Drawer
@@ -97,14 +125,30 @@ export function PatientDrawer({
             ))}
           </Select>
 
-          <Input
-            type="number"
-            label="Yaş"
-            placeholder="Hasta yaşını girin"
-            labelPlacement="outside"
-            variant="faded"
-            defaultValue={initialData?.age?.toString()}
-          />
+          <div className="flex gap-4">
+            <Input
+              type="number"
+              label="Yaş"
+              placeholder="Yaş girin"
+              labelPlacement="outside"
+              variant="faded"
+              value={age}
+              onValueChange={handleAgeChange}
+              className="flex-1"
+              min={0}
+              max={150}
+            />
+            <div className="flex-[2]">
+              <DatePicker
+                label="Doğum Tarihi"
+                value={birthDate}
+                onChange={handleBirthDateChange}
+                labelPlacement="outside"
+                showMonthAndYearPickers
+                variant="faded"
+              />
+            </div>
+          </div>
         </DrawerBody>
         <DrawerFooter className="border-t border-divider">
           <div className="flex w-full gap-2">
