@@ -10,7 +10,6 @@ import {
   Select,
   SelectItem,
   Button,
-  Textarea,
 } from "@nextui-org/react";
 
 interface PatientDrawerProps {
@@ -105,15 +104,6 @@ export function PatientDrawer({
             labelPlacement="outside"
             variant="faded"
             defaultValue={initialData?.age?.toString()}
-          />
-
-          <Textarea
-            label="Tanı"
-            placeholder="Hasta tanısını girin"
-            labelPlacement="outside"
-            variant="faded"
-            minRows={3}
-            defaultValue={initialData?.diagnosis}
           />
         </DrawerBody>
         <DrawerFooter className="border-t border-divider">
