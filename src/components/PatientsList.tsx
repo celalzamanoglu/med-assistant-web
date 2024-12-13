@@ -30,7 +30,7 @@ export function PatientsList() {
       <div className="mb-4">
         <Input
           placeholder="Hasta ara..."
-          startContent={<SearchIcon className="text-default-400" />}
+          startContent={<SearchIcon className="text-default-400 w-4 h-4" />}
           size="sm"
         />
       </div>

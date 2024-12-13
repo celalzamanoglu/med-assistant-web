@@ -29,9 +29,9 @@ export default function DashboardPage() {
               <div>
                 <h2 className="text-lg font-semibold mb-2">Kayıt Oluştur</h2>
                 <p className="text-default-500 max-w-4xl">
-                  Sol menüdeki &quot;Seansı Kaydet&quot; butonuna tıklayarak
-                  yeni bir kayıt oluşturmaya başlayın. Dikte, yükleme veya
-                  anlatım seçeneklerinden birini kullanabilirsiniz.
+                  Sol menüdeki &quot;Seans Kaydet&quot; butonuna tıklayarak yeni
+                  bir kayıt oluşturmaya başlayın. Dikte, yükleme veya anlatım
+                  seçeneklerinden birini kullanabilirsiniz.
                 </p>
               </div>
             </div>

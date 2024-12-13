@@ -11,7 +11,7 @@ export function SessionControls({ onOpen }: SessionControlsProps) {
   return (
     <div className="space-y-4">
       <Button color="primary" size="lg" className="w-full" onClick={onOpen}>
-        Seansı Kaydet
+        Seans Kaydet
       </Button>
 
       <div className="grid grid-cols-3 gap-2">
