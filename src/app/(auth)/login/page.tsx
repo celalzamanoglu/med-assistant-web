@@ -1,141 +1,157 @@
 "use client";
 
-import React from "react";
-import {
-  Form,
-  Input,
-  Button,
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Link,
-  Divider,
-} from "@nextui-org/react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Card, CardBody, Input, Button, Link, Image } from "@nextui-org/react";
+import { EmailIcon, LockIcon, EyeIcon, EyeSlashIcon } from "@components";
 
 import {
-  ThemeSwitch,
-  EmailIcon,
-  LockIcon,
-  EyeIcon,
-  EyeSlashIcon,
-} from "@components";
+  DoctorIcon,
+  AmbulanceIcon,
+  MicrophoneIcon,
+  WritingHandIcon,
+} from "@components/icons/BrandingIcons";
 
-export default function Login() {
+export default function LoginPage() {
+  const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
-  const [errors, setErrors] = React.useState<{
-    email?: string;
-    password?: string;
-  }>({});
 
-  const togglePasswordVisibility = () =>
-    setIsPasswordVisible(!isPasswordVisible);
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-
-    // Basic validation
-    const newErrors: typeof errors = {};
-
-    if (!data.email) {
-      newErrors.email = "E-posta adresi gerekli";
-    }
-
-    if (!data.password) {
-      newErrors.password = "Şifre gerekli";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-
-    // Clear errors and submit
-    setErrors({});
-    // Here you would typically make an API call to authenticate
-    console.log("Giriş yapılıyor:", {
-      email: data.email,
-      password: data.password,
-    });
-
-    // Mock authentication
+  const handleLogin = () => {
     localStorage.setItem("isAuthenticated", "true");
-    router.push("/"); // Redirect to home page
+    router.push("/");
   };
 
   return (
-    <div className="flex justify-center items-center min-h-[80vh]">
-      <Card className="max-w-md w-full">
-        <CardHeader className="flex flex-col gap-2">
-          <div className="self-end">
-            <ThemeSwitch />
+    <div className="min-h-screen w-full flex flex-col md:flex-row">
+      {/* Left Side - Branding */}
+      <div className="hidden md:flex md:w-1/2 bg-primary flex-col items-center justify-center p-8 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full">
+            <pattern
+              id="grid"
+              width="32"
+              height="32"
+              patternUnits="userSpaceOnUse"
+            >
+              <path
+                d="M0 32V0h32"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1"
+              />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        {/* Floating Icons */}
+        <div className="absolute inset-0">
+          <DoctorIcon className="absolute w-24 h-24 text-white/40 top-[20%] left-[15%] -rotate-12" />
+          <AmbulanceIcon className="absolute w-20 h-20 text-white/30 top-[30%] right-[10%] rotate-12" />
+          <MicrophoneIcon className="absolute w-16 h-16 text-white/40 bottom-[30%] left-[20%] rotate-12" />
+          <WritingHandIcon className="absolute w-20 h-20 text-white/30 bottom-[20%] right-[15%] -rotate-12" />
+        </div>
+
+        {/* Branding Content */}
+        <div className="relative flex flex-col items-center gap-8 text-white">
+          <div className="text-center">
+            <h1 className="text-6xl font-bold mb-4">MedAssistant</h1>
+            <p className="text-xl opacity-90">
+              Yapay zeka destekli hasta görüşme asistanınız
+            </p>
           </div>
-          <h1 className="text-2xl font-bold text-center">Hoş Geldiniz!</h1>
-          <p className="text-default-500 text-center">
-            Hesabınıza erişmek için giriş yapın
-          </p>
-        </CardHeader>
-        <Divider />
-        <CardBody>
-          <Form className="flex flex-col gap-4" onSubmit={onSubmit}>
-            <Input
-              isRequired={false}
-              label="E-posta"
-              labelPlacement="outside"
-              name="email"
-              placeholder="E-posta adresinizi girin"
-              type="email"
-              value={email}
-              errorMessage={errors.email}
-              onValueChange={setEmail}
-              startContent={<EmailIcon />}
-            />
+        </div>
 
-            <Input
-              isRequired={false}
-              label="Şifre"
-              labelPlacement="outside"
-              name="password"
-              placeholder="Şifrenizi girin"
-              type={isPasswordVisible ? "text" : "password"}
-              value={password}
-              errorMessage={errors.password}
-              onValueChange={setPassword}
-              startContent={<LockIcon />}
-              endContent={
-                <button
-                  className="focus:outline-none"
-                  type="button"
-                  onClick={togglePasswordVisibility}
-                >
-                  {isPasswordVisible ? <EyeSlashIcon /> : <EyeIcon />}
-                </button>
-              }
-            />
+        {/* Decorative Illustration */}
+        <Image
+          src="/login-illustration.svg"
+          alt="Login"
+          className="relative max-w-md w-full mt-12"
+        />
+      </div>
 
-            <Button type="submit" color="primary" size="lg" className="w-full">
-              Giriş Yap
-            </Button>
-          </Form>
-        </CardBody>
-        <Divider />
-        <CardFooter className="flex flex-col gap-2">
-          <p className="text-center text-small">
-            Hesabınız yok mu?{" "}
-            <Link href="/signup" size="sm">
-              Kayıt Ol
-            </Link>
-          </p>
-          <Link href="/forgot-password" size="sm" className="text-center">
-            Şifremi Unuttum
-          </Link>
-        </CardFooter>
-      </Card>
+      {/* Right Side - Login Form */}
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
+        <Card className="w-full max-w-md">
+          <CardBody className="space-y-8 p-6 md:p-8">
+            {/* Logo and Title - Only show on mobile */}
+            <div className="md:hidden flex flex-col items-center gap-4 mb-8">
+              <Image
+                src="/logo.svg"
+                alt="MedAssistant Logo"
+                className="h-12 w-auto"
+              />
+              <h1 className="text-2xl font-bold text-default-900">
+                MedAssistant
+              </h1>
+            </div>
+
+            <div className="space-y-4">
+              <h2 className="text-xl font-semibold text-default-900">
+                Hesabınıza Giriş Yapın
+              </h2>
+              <p className="text-sm text-default-500">
+                Hasta görüşmelerinizi yönetmeye başlayın
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <Input
+                label="Email"
+                variant="bordered"
+                placeholder="Email adresinizi girin"
+                startContent={<EmailIcon />}
+              />
+
+              <Input
+                label="Şifre"
+                variant="bordered"
+                placeholder="Şifrenizi girin"
+                startContent={<LockIcon />}
+                endContent={
+                  <button
+                    className="focus:outline-none"
+                    type="button"
+                    onClick={toggleVisibility}
+                  >
+                    {isVisible ? <EyeSlashIcon /> : <EyeIcon />}
+                  </button>
+                }
+                type={isVisible ? "text" : "password"}
+              />
+
+              <div className="flex justify-between items-center">
+                <label className="text-sm">
+                  <input type="checkbox" className="mr-2" />
+                  Beni hatırla
+                </label>
+                <Link href="#" size="sm" className="text-primary">
+                  Şifremi unuttum
+                </Link>
+              </div>
+
+              <Button
+                color="primary"
+                size="lg"
+                className="w-full"
+                onPress={handleLogin}
+              >
+                Giriş Yap
+              </Button>
+            </div>
+
+            <div className="text-center text-sm text-default-500">
+              Hesabınız yok mu?{" "}
+              <Link href="/register" className="text-primary">
+                Kayıt olun
+              </Link>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 }
