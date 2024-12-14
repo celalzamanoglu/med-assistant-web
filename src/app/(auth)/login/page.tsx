@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardBody, Input, Button, Link, Image } from "@nextui-org/react";
-import { EmailIcon, LockIcon, EyeIcon, EyeSlashIcon } from "@components";
+import {
+  EmailIcon,
+  LockIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  ThemeSwitch,
+} from "@components";
 
 import {
   DoctorIcon,
@@ -25,6 +31,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen w-full flex flex-col md:flex-row">
+      {/* Theme Switch - Absolute positioned */}
+      <div className="absolute top-4 right-4 z-50">
+        <ThemeSwitch />
+      </div>
+
       {/* Left Side - Branding */}
       <div className="hidden md:flex md:w-1/2 bg-primary flex-col items-center justify-center p-8 relative overflow-hidden">
         {/* Background Pattern */}
@@ -49,10 +60,10 @@ export default function LoginPage() {
 
         {/* Floating Icons */}
         <div className="absolute inset-0">
-          <DoctorIcon className="absolute w-24 h-24 text-white/40 top-[20%] left-[15%] -rotate-12" />
-          <AmbulanceIcon className="absolute w-20 h-20 text-white/30 top-[30%] right-[10%] rotate-12" />
-          <MicrophoneIcon className="absolute w-16 h-16 text-white/40 bottom-[30%] left-[20%] rotate-12" />
-          <WritingHandIcon className="absolute w-20 h-20 text-white/30 bottom-[20%] right-[15%] -rotate-12" />
+          <DoctorIcon className="absolute w-24 h-24 text-white/60 top-[20%] left-[15%] -rotate-12" />
+          <AmbulanceIcon className="absolute w-20 h-20 text-white/50 top-[30%] right-[10%] rotate-12" />
+          <MicrophoneIcon className="absolute w-16 h-16 text-white/60 bottom-[30%] left-[20%] rotate-12" />
+          <WritingHandIcon className="absolute w-20 h-20 text-white/50 bottom-[20%] right-[15%] -rotate-12" />
         </div>
 
         {/* Branding Content */}
