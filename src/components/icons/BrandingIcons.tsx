@@ -1,3 +1,24 @@
+export function AmbulanceIcon(props: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlSpace="preserve"
+      width={600}
+      height={600}
+      viewBox="0 0 300 300"
+      color="currentColor"
+      stroke="currentColor"
+      fill="currentColor"
+      fillOpacity="0.9"
+      {...props}
+    >
+      <path d="M62.5 187.494c-17.231 0-31.25 14.025-31.25 31.262 0 17.231 14.019 31.25 31.25 31.25s31.25-14.019 31.25-31.25c0-17.237-14.019-31.262-31.25-31.262zm0 50.012c-10.338 0-18.75-8.412-18.75-18.75 0-10.337 8.412-18.762 18.75-18.762s18.75 8.425 18.75 18.762c0 10.338-8.412 18.75-18.75 18.75zM243.75 187.494c-17.231 0-31.25 14.025-31.25 31.262 0 17.231 14.019 31.25 31.25 31.25S275 235.987 275 218.756c0-17.237-14.019-31.262-31.25-31.262zm0 50.012c-10.338 0-18.75-8.412-18.75-18.75 0-10.337 8.412-18.762 18.75-18.762s18.75 8.425 18.75 18.762c0 10.338-8.412 18.75-18.75 18.75zM187.5 218.744h-75a6.245 6.245 0 0 0-6.25 6.25 6.245 6.245 0 0 0 6.25 6.25h75a6.245 6.245 0 0 0 6.25-6.25 6.244 6.244 0 0 0-6.25-6.25z" />
+      <path d="M293.75 68.744h-175v-12.5a6.245 6.245 0 0 0-6.25-6.25H100a6.245 6.245 0 0 0-6.25 6.25v12.5H75c-27.569 0-50 22.431-50 50v21.131L3.456 150.65A6.259 6.259 0 0 0 0 156.244v75c0 3.456 2.794 6.25 6.25 6.25s6.25-2.794 6.25-6.25v-71.131l21.544-10.775a6.257 6.257 0 0 0 3.456-5.594v-25c0-20.681 16.818-37.5 37.499-37.5H287.5v150c0 3.456 2.794 6.25 6.25 6.25s6.25-2.794 6.25-6.25V74.994a6.244 6.244 0 0 0-6.25-6.25z" />
+      <path d="M93.75 89.925c-16.194 0-40.675 18.975-40.675 47.569a6.245 6.245 0 0 0 6.25 6.25H93.75a6.245 6.245 0 0 0 6.25-6.25V96.175a6.245 6.245 0 0 0-6.25-6.25zm-6.25 41.319H66.125c2.513-14.05 13.131-23.675 21.375-27.256v27.256zM237.5 174.994v-18.75h18.75a6.245 6.245 0 0 0 6.25-6.25v-25a6.245 6.245 0 0 0-6.25-6.25H237.5v-18.75a6.245 6.245 0 0 0-6.25-6.25h-25a6.245 6.245 0 0 0-6.25 6.25v18.75h-18.75a6.245 6.245 0 0 0-6.25 6.25v25a6.245 6.245 0 0 0 6.25 6.25H200v18.75a6.245 6.245 0 0 0 6.25 6.25h25a6.245 6.245 0 0 0 6.25-6.25zm-12.5-25v18.75h-12.5v-18.75a6.245 6.245 0 0 0-6.25-6.25H187.5v-12.5h18.75a6.245 6.245 0 0 0 6.25-6.25v-18.75H225v18.75a6.245 6.245 0 0 0 6.25 6.25H250v12.5h-18.75a6.245 6.245 0 0 0-6.25 6.25z" />
+    </svg>
+  );
+}
+
 export function DoctorIcon(props: { className?: string }) {
   return (
     <svg
@@ -23,35 +44,6 @@ export function DoctorIcon(props: { className?: string }) {
         fill="currentColor"
         fillOpacity="0.2"
       />
-    </svg>
-  );
-}
-
-export function AmbulanceIcon(props: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M8 44h40v-24H8v24zm32-12h-8v-8h8v8z"
-        stroke="currentColor"
-        strokeWidth="3"
-        fillOpacity="0.2"
-        fill="currentColor"
-      />
-      <circle cx="16" cy="44" r="4" stroke="currentColor" strokeWidth="3" />
-      <circle cx="40" cy="44" r="4" stroke="currentColor" strokeWidth="3" />
-      <path
-        d="M48 44V28l8 4v12h-8z"
-        stroke="currentColor"
-        strokeWidth="3"
-        fillOpacity="0.2"
-        fill="currentColor"
-      />
-      <path d="M28 28v8m-4-4h8" stroke="currentColor" strokeWidth="3" />
     </svg>
   );
 }
@@ -84,26 +76,26 @@ export function MicrophoneIcon(props: { className?: string }) {
 export function WritingHandIcon(props: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 64 64"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 48 48"
+      stroke="currentColor"
+      fill="none"
       {...props}
     >
-      <path
-        d="M44 24L24 44l-8-8 20-20 8 8z"
-        stroke="currentColor"
-        strokeWidth="3"
-        fillOpacity="0.2"
-        fill="currentColor"
-      />
-      <path
-        d="M24 44l-8-8-4 12 12-4z"
-        stroke="currentColor"
-        strokeWidth="3"
-        fillOpacity="0.2"
-        fill="currentColor"
-      />
-      <path d="M40 20l4-4 8 8-4 4" stroke="currentColor" strokeWidth="3" />
+      <g data-name="16-note" stroke="currentColor">
+        <path
+          d="m47.707 16.052-2.759-2.759a1.029 1.029 0 0 0-1.414 0L35 21.828V7.858A3.992 3.992 0 0 0 34 0H4a4 4 0 0 0-4 4v19a1 1 0 0 0 1 1h2v23a1 1 0 0 0 1 1h22a1.005 1.005 0 0 0 .707-.293l8-8A1 1 0 0 0 35 39v-8.828l12.707-12.706a1 1 0 0 0 0-1.414zM7.444 2H34a2 2 0 0 1 0 4H7.444A3.959 3.959 0 0 0 8 4a3.959 3.959 0 0 0-.556-2zM3 22H2V7.444a3.93 3.93 0 0 0 1 .414zM2 4a2 2 0 1 1 2 2 2 2 0 0 1-2-2zm31 34.586-6 6V40h3v-2h-4a1 1 0 0 0-1 1v7H5V8h28v15.828l-4.638 4.638a1 1 0 0 0-.209.315l-.006.016-2.061 4.808A1 1 0 0 0 27 35a.989.989 0 0 0 .394-.081l4.806-2.061.016-.006a1 1 0 0 0 .315-.209l.469-.471zm-1.173-8.069-1.344-1.344 13.758-13.759 1.345 1.345z"
+          stroke="currentColor"
+          fill="currentColor"
+          fillOpacity="0.2"
+        />
+        <path
+          d="M9 11h20v2H9zm0 5h20v2H9zm0 5h20v2H9zm0 5h10v2H9z"
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth={0}
+        />
+      </g>
     </svg>
   );
 }
