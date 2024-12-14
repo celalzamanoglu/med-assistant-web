@@ -32,7 +32,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen w-full flex flex-col md:flex-row">
       {/* Theme Switch - Absolute positioned */}
-      <div className="absolute top-4 right-4 z-50">
+      <div className="hidden md:block absolute top-4 right-4 z-50">
         <ThemeSwitch />
       </div>
 
@@ -88,6 +88,10 @@ export default function LoginPage() {
       <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8">
         <Card className="w-full max-w-md">
           <CardBody className="space-y-8 p-6 md:p-8">
+            {/* Theme Switch - Absolute positioned */}
+            <div className="md:hidden absolute top-4 right-4 z-50">
+              <ThemeSwitch />
+            </div>
             {/* Logo and Title - Only show on mobile */}
             <div className="md:hidden flex flex-col items-center gap-4 mb-8">
               <Image
