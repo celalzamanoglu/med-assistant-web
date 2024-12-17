@@ -17,7 +17,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [drawerMode, setDrawerMode] = useState<DrawerMode>("record");
-  const { selectedPatient, setSelectedPatient } = usePatient();
+  const { selectedPatient, handleOnPressPatient } = usePatient();
 
   if (isAuthenticated === null || !isAuthenticated) {
     return null;
@@ -37,7 +37,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
             <PatientsList
               layout="horizontal"
               selectedPatientId={selectedPatient?.id}
-              onPatientSelect={setSelectedPatient}
+              onPatientSelect={handleOnPressPatient}
             />
           </div>
         </div>
@@ -52,7 +52,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
               <PatientsList
                 layout="vertical"
                 selectedPatientId={selectedPatient?.id}
-                onPatientSelect={setSelectedPatient}
+                onPatientSelect={handleOnPressPatient}
               />
             </div>
           </div>

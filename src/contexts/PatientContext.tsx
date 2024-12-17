@@ -5,7 +5,7 @@ import { Patient } from "@/declarations";
 
 interface PatientContextType {
   selectedPatient: Patient | null;
-  setSelectedPatient: (patient: Patient | null) => void;
+  handleOnPressPatient: (patient: Patient | null) => void;
 }
 
 const PatientContext = createContext<PatientContextType | undefined>(undefined);
@@ -13,8 +13,16 @@ const PatientContext = createContext<PatientContextType | undefined>(undefined);
 export function PatientProvider({ children }: { children: React.ReactNode }) {
   const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
 
+  const handleOnPressPatient = (patient: Patient | null) => {
+    if (patient === selectedPatient) {
+      setSelectedPatient(null);
+    } else {
+      setSelectedPatient(patient);
+    }
+  };
+
   return (
-    <PatientContext.Provider value={{ selectedPatient, setSelectedPatient }}>
+    <PatientContext.Provider value={{ selectedPatient, handleOnPressPatient }}>
       {children}
     </PatientContext.Provider>
   );
