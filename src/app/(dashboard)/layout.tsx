@@ -9,17 +9,15 @@ import {
 } from "@components";
 import { useAuth } from "@/hooks/useAuth";
 import { useDisclosure } from "@nextui-org/react";
+import { PatientProvider, usePatient } from "@/contexts/PatientContext";
 
 type DrawerMode = "record" | "manual";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+function DashboardContent({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [drawerMode, setDrawerMode] = useState<DrawerMode>("record");
+  const { selectedPatient, setSelectedPatient } = usePatient();
 
   if (isAuthenticated === null || !isAuthenticated) {
     return null;
@@ -36,7 +34,11 @@ export default function DashboardLayout({
             <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
           </div>
           <div className="px-4 pb-4">
-            <PatientsList layout="horizontal" />
+            <PatientsList
+              layout="horizontal"
+              selectedPatientId={selectedPatient?.id}
+              onPatientSelect={setSelectedPatient}
+            />
           </div>
         </div>
 
@@ -47,7 +49,11 @@ export default function DashboardLayout({
               <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
             </div>
             <div className="flex-1 p-4 overflow-auto">
-              <PatientsList layout="vertical" />
+              <PatientsList
+                layout="vertical"
+                selectedPatientId={selectedPatient?.id}
+                onPatientSelect={setSelectedPatient}
+              />
             </div>
           </div>
           <div className="w-3/4">
@@ -66,5 +72,17 @@ export default function DashboardLayout({
         mode={drawerMode}
       />
     </>
+  );
+}
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <PatientProvider>
+      <DashboardContent>{children}</DashboardContent>
+    </PatientProvider>
   );
 }

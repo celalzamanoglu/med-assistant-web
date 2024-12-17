@@ -1,17 +1,96 @@
-import { Session } from "@/declarations";
+import { Session, Patient } from "@/declarations";
 
-export const mockPatients = [
-  { id: 1, name: "Ayşe Kaya" },
-  { id: 2, name: "Mehmet Demir" },
-  { id: 3, name: "Zeynep Yılmaz" },
-  { id: 4, name: "Ahmet Yıldız" },
-  { id: 5, name: "Can Öztürk" },
-  { id: 6, name: "Elif Şahin" },
+export const mockPatients: Patient[] = [
+  {
+    id: "1",
+    name: "Ayşe Kaya",
+    category: "personal",
+    gender: "female",
+    age: 28,
+    diagnosis: "Anksiyete Bozukluğu",
+    profile_color: {
+      light: "#E9D5FF",
+      dark: "#A855F7"
+    },
+    created_at: "2024-03-01T10:00:00",
+    updated_at: "2024-03-15T11:00:00",
+  },
+  {
+    id: "2",
+    name: "Mehmet Demir",
+    category: "personal",
+    gender: "male",
+    age: 35,
+    diagnosis: "Major Depresyon",
+    profile_color: {
+      light: "#BFDBFE",
+      dark: "#3B82F6"
+    },
+    created_at: "2024-03-02T14:30:00",
+    updated_at: "2024-03-14T16:15:00",
+  },
+  {
+    id: "3",
+    name: "Zeynep Yılmaz",
+    category: "child",
+    gender: "female",
+    age: 12,
+    diagnosis: "DEHB",
+    profile_color: {
+      light: "#FBCFE8",
+      dark: "#EC4899"
+    },
+    created_at: "2024-03-03T09:00:00",
+    updated_at: "2024-03-13T09:45:00",
+  },
+  {
+    id: "4",
+    name: "Ahmet Yıldız",
+    category: "personal",
+    gender: "male",
+    age: 42,
+    diagnosis: "Henüz belirlenmedi",
+    profile_color: {
+      light: "#99F6E4",
+      dark: "#14B8A6"
+    },
+    created_at: "2024-03-04T11:00:00",
+    updated_at: "2024-03-16T09:30:00",
+  },
+  {
+    id: "5",
+    name: "Can Öztürk",
+    category: "personal",
+    gender: "male",
+    age: 29,
+    diagnosis: "OKB",
+    profile_color: {
+      light: "#C7D2FE",
+      dark: "#6366F1"
+    },
+    created_at: "2024-03-05T15:00:00",
+    updated_at: "2024-03-12T15:00:00",
+  },
+  {
+    id: "6",
+    name: "Elif Şahin",
+    category: "personal",
+    gender: "female",
+    age: 24,
+    diagnosis: "Sosyal Anksiyete",
+    profile_color: {
+      light: "#FECDD3",
+      dark: "#F43F5E"
+    },
+    created_at: "2024-03-06T10:30:00",
+    updated_at: "2024-03-11T12:00:00",
+  },
 ];
 
 export const mockSessions: Session[] = [
   {
     id: "1",
+    patientId: "1",
     patientName: "Ayşe Kaya",
     type: "record",
     status: "stopped",
@@ -23,6 +102,7 @@ export const mockSessions: Session[] = [
   },
   {
     id: "2",
+    patientId: "2",
     patientName: "Mehmet Demir",
     type: "dictate",
     status: "error",
@@ -34,6 +114,7 @@ export const mockSessions: Session[] = [
   },
   {
     id: "3",
+    patientId: "3",
     patientName: "Zeynep Yılmaz",
     type: "note",
     status: "generating",
@@ -45,6 +126,7 @@ export const mockSessions: Session[] = [
   },
   {
     id: "4",
+    patientId: "5",
     patientName: "Can Öztürk",
     type: "record",
     status: "done",
@@ -56,6 +138,7 @@ export const mockSessions: Session[] = [
   },
   {
     id: "5",
+    patientId: "6",
     patientName: "Elif Şahin",
     type: "dictate",
     status: "done",
@@ -67,6 +150,7 @@ export const mockSessions: Session[] = [
   },
   {
     id: "6",
+    patientId: "4",
     patientName: "Ahmet Yıldız",
     type: "record",
     status: "in_progress",
@@ -76,4 +160,4 @@ export const mockSessions: Session[] = [
     created_at: new Date("2024-03-16T09:00:00"),
     updated_at: new Date("2024-03-16T09:30:00"),
   },
-] as const; 
+]; 

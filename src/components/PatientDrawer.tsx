@@ -14,20 +14,13 @@ import {
   DatePicker,
 } from "@nextui-org/react";
 import { parseDate, CalendarDate } from "@internationalized/date";
+import { Patient } from "@/declarations";
 
 interface PatientDrawerProps {
   isOpen: boolean;
   onOpenChange: () => void;
   mode?: "add" | "edit";
   initialData?: Patient;
-}
-
-interface Patient {
-  fullName: string;
-  category: "bireysel" | "çocuk" | "yetişkin";
-  gender: "male" | "female" | "other";
-  age: number;
-  diagnosis: string;
 }
 
 const categories = [
@@ -94,7 +87,7 @@ export function PatientDrawer({
             placeholder="Hasta adı ve soyadını girin"
             labelPlacement="outside"
             variant="faded"
-            defaultValue={initialData?.fullName}
+            defaultValue={initialData?.name}
           />
 
           <Select

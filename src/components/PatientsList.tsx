@@ -2,19 +2,28 @@
 
 import { useState } from "react";
 import { Input, Button, ScrollShadow, Link } from "@nextui-org/react";
+
 import {
   PatientsListItem,
   PatientDrawer,
   PlusIcon,
   SearchIcon,
 } from "@components";
+
+import { Patient } from "@/declarations";
 import { mockPatients } from "@/constants/mocks";
 
 interface PatientsListProps {
   layout?: "horizontal" | "vertical";
+  onPatientSelect?: (patient: Patient) => void;
+  selectedPatientId?: string;
 }
 
-export function PatientsList({ layout = "vertical" }: PatientsListProps) {
+export function PatientsList({
+  layout = "vertical",
+  onPatientSelect,
+  selectedPatientId,
+}: PatientsListProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const isHorizontal = layout === "horizontal";
 
@@ -52,23 +61,44 @@ export function PatientsList({ layout = "vertical" }: PatientsListProps) {
             hideScrollBar={false}
           >
             <div className="flex gap-2 pb-2 px-1">
-              {mockPatients.map((patient) => (
-                <div key={patient.id} className="flex-shrink-0">
-                  <PatientsListItem name={patient.name} layout="horizontal" />
-                </div>
-              ))}
+              {mockPatients.map((patient) => {
+                console.log(
+                  `Passing color for ${patient.name}:`,
+                  patient.profile_color
+                );
+                return (
+                  <div key={patient.id} className="flex-shrink-0">
+                    <PatientsListItem
+                      name={patient.name}
+                      layout="horizontal"
+                      isSelected={patient.id === selectedPatientId}
+                      onClick={() => onPatientSelect?.(patient)}
+                      profileColor={patient.profile_color}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </ScrollShadow>
         ) : (
           <ScrollShadow className="flex-1" hideScrollBar={false}>
             <div className="space-y-2 pr-2">
-              {mockPatients.map((patient) => (
-                <PatientsListItem
-                  key={patient.id}
-                  name={patient.name}
-                  layout="vertical"
-                />
-              ))}
+              {mockPatients.map((patient) => {
+                console.log(
+                  `Passing color for ${patient.name}:`,
+                  patient.profile_color
+                );
+                return (
+                  <PatientsListItem
+                    key={patient.id}
+                    name={patient.name}
+                    layout="vertical"
+                    isSelected={patient.id === selectedPatientId}
+                    onClick={() => onPatientSelect?.(patient)}
+                    profileColor={patient.profile_color}
+                  />
+                );
+              })}
             </div>
           </ScrollShadow>
         )}

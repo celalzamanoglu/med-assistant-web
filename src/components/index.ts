@@ -21,3 +21,7 @@ export { UserGuide } from './UserGuide';
 export { PatientsListItem } from './PatientsListItem';
 export { PatientDrawer } from './PatientDrawer';
 export { NoteIcon } from './icons/NoteIcon';
+export { PatientDetails } from './PatientDetails';
+export { SessionItem } from './SessionItem';
+export { ProgressSummary } from './ProgressSummary';
+export { PastSessions } from './PastSessions';
