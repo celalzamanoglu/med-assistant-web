@@ -24,7 +24,6 @@ interface PatientDrawerProps {
 }
 
 const categories = [
-  { label: "Bireysel", value: "bireysel" },
   { label: "Çocuk", value: "çocuk" },
   { label: "Yetişkin", value: "yetişkin" },
 ];
