@@ -9,7 +9,6 @@ import {
 } from "@components";
 import { useAuth } from "@/hooks/useAuth";
 import { useDisclosure } from "@nextui-org/react";
-import { PatientProvider, usePatient } from "@/contexts/PatientContext";
 
 type DrawerMode = "record" | "manual";
 
@@ -17,7 +16,6 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuth();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [drawerMode, setDrawerMode] = useState<DrawerMode>("record");
-  const { selectedPatient, handleOnPressPatient } = usePatient();
 
   if (isAuthenticated === null || !isAuthenticated) {
     return null;
@@ -34,11 +32,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
             <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
           </div>
           <div className="px-4 pb-4">
-            <PatientsList
-              layout="horizontal"
-              selectedPatientId={selectedPatient?.id}
-              onPatientSelect={handleOnPressPatient}
-            />
+            <PatientsList layout="horizontal" />
           </div>
         </div>
 
@@ -49,11 +43,7 @@ function DashboardContent({ children }: { children: React.ReactNode }) {
               <SessionControls onOpen={onOpen} onModeChange={setDrawerMode} />
             </div>
             <div className="flex-1 p-4 overflow-auto">
-              <PatientsList
-                layout="vertical"
-                selectedPatientId={selectedPatient?.id}
-                onPatientSelect={handleOnPressPatient}
-              />
+              <PatientsList layout="vertical" />
             </div>
           </div>
           <div className="w-3/4">
@@ -80,9 +70,5 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <PatientProvider>
-      <DashboardContent>{children}</DashboardContent>
-    </PatientProvider>
-  );
+  return <DashboardContent>{children}</DashboardContent>;
 }
