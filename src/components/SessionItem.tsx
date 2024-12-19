@@ -4,6 +4,7 @@ import { Card, CardBody, Chip, Avatar } from "@nextui-org/react";
 import { MicIcon, NoteIcon, AudioWaveIcon } from "@components";
 import { Session } from "@/declarations";
 import { getInitials } from "@/utils";
+import { useRouter } from "next/navigation";
 
 const TypeIcon = {
   dictate: MicIcon,
@@ -24,6 +25,7 @@ interface SessionItemProps {
 }
 
 export function SessionItem({ session }: SessionItemProps) {
+  const router = useRouter();
   const Icon = TypeIcon[session.type];
   const status = StatusChip[session.status];
   const formattedDate = new Intl.DateTimeFormat("tr-TR", {
@@ -32,7 +34,11 @@ export function SessionItem({ session }: SessionItemProps) {
   });
 
   return (
-    <Card className="w-full" isPressable>
+    <Card
+      className="w-full"
+      isPressable
+      onPress={() => router.push(`/sessions/${session.id}`)}
+    >
       <CardBody className="p-4">
         <div className="flex justify-between items-start mb-2">
           <div className="flex gap-3 items-center">

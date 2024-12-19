@@ -25,3 +25,4 @@ export { PatientDetails } from './PatientDetails';
 export { SessionItem } from './SessionItem';
 export { ProgressSummary } from './ProgressSummary';
 export { PastSessions } from './PastSessions';
+export { SessionDetails } from './SessionDetails';
