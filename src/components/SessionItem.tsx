@@ -37,7 +37,7 @@ export function SessionItem({ session }: SessionItemProps) {
     <Card
       className="w-full"
       isPressable
-      onPress={() => router.push(`/sessions/${session.id}`)}
+      onPress={() => router.push(`/session/${session.id}`)}
     >
       <CardBody className="p-4">
         <div className="flex justify-between items-start mb-2">
