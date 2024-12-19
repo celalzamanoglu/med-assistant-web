@@ -39,7 +39,7 @@ export function SessionItem({ session }: SessionItemProps) {
       isPressable
       onPress={() => router.push(`/session/${session.id}`)}
     >
-      <CardBody className="p-4">
+      <CardBody className="p-4 px-6">
         <div className="flex justify-between items-start mb-2">
           <div className="flex gap-3 items-center">
             <Avatar

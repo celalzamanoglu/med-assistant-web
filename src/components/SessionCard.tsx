@@ -10,7 +10,7 @@ interface SessionCardProps {
 export function SessionCard({ title, content }: SessionCardProps) {
   return (
     <Card className="w-full">
-      <CardBody className="space-y-2">
+      <CardBody className="space-y-2 px-6">
         <h3 className="font-semibold text-default-700">{title}</h3>
         <p className="text-sm text-default-600">
           {content || "Bilgi girilmemiş."}
