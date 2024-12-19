@@ -46,7 +46,7 @@ export function SessionDetails({ session }: SessionDetailsProps) {
       <SessionInsights insights={session.insights} />
 
       {/* Session Details Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="space-y-4">
         <SessionCard title="Tanı" content={session.diagnosis} />
         <SessionCard title="Şikayet" content={session.complaint} />
         <SessionCard title="Hikaye" content={session.story} />
