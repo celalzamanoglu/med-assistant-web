@@ -8,6 +8,7 @@ export const mockPatients: Patient[] = [
     gender: "female",
     age: 28,
     diagnosis: "ICD-10: F41.9 - Anksiyete Bozukluğu",
+    progress_summary: "Hasta düzenli olarak seanslarına katılıyor. Son 3 seansta kaygı seviyesinde belirgin azalma gözlemlendi. Uyku düzeni iyileşme gösteriyor. Sosyal aktivitelere katılım artmaya başladı.",
     profile_color: {
       light: "#E9D5FF",
       dark: "#A855F7"
@@ -21,7 +22,8 @@ export const mockPatients: Patient[] = [
     category: "personal",
     gender: "male",
     age: 35,
-    diagnosis: "",
+    diagnosis: null,
+    progress_summary: null,
     profile_color: {
       light: "#BFDBFE",
       dark: "#3B82F6"
@@ -35,7 +37,8 @@ export const mockPatients: Patient[] = [
     category: "child",
     gender: "female",
     age: 12,
-    diagnosis: "",
+    diagnosis: null,
+    progress_summary: null,
     profile_color: {
       light: "#FBCFE8",
       dark: "#EC4899"
@@ -49,7 +52,8 @@ export const mockPatients: Patient[] = [
     category: "personal",
     gender: "male",
     age: 42,
-    diagnosis: "",
+    diagnosis: null,
+    progress_summary: null,
     profile_color: {
       light: "#99F6E4",
       dark: "#14B8A6"
@@ -64,6 +68,7 @@ export const mockPatients: Patient[] = [
     gender: "male",
     age: 29,
     diagnosis: "ICD-10: F42.2 - OKB",
+    progress_summary: "Maruz bırakma egzersizleri olumlu sonuç veriyor. Ritüellerin sıklığı ve süresi azaldı. Günlük yaşam aktivitelerinde iyileşme var.",
     profile_color: {
       light: "#C7D2FE",
       dark: "#6366F1"
@@ -78,6 +83,7 @@ export const mockPatients: Patient[] = [
     gender: "female",
     age: 24,
     diagnosis: "ICD-10: F40.1 - Sosyal Anksiyete Bozukluğu",
+    progress_summary: "Sosyal durumlarda kaygı seviyesi azalmaya başladı. Kaçınma davranışları azalıyor. İş yerinde iletişim becerileri gelişiyor.",
     profile_color: {
       light: "#FECDD3",
       dark: "#F43F5E"
@@ -100,7 +106,7 @@ export const mockSessions: Session[] = [
     story:"Hasta yaklaşık bir haftadır idrar yaparken sıkıntı yaşıyor. Sık sık tuvalete gitme ihtiyacı hissetmesine rağmen gittiğinde az miktarda veya hiç idrar yapamıyor. İdrar renginde koyulaşma ve yanma hissi olduğunu belirtti ancak idrarında kan görmemiş. Alt karın bölgesinde hafif ağrı hissediyor. Günlük su tüketimi düşük (yaklaşık bir litre).",
     clinical_findings:"Fizik muayenede belirgin bir anormallik saptanmadı. Hasta stresli bir dönem geçirmiyor.",
     treatment:"İdrar tahlili yapılması ve gerekirse ultrason tetkiki planlandı.",
-    insights:"Muhtemel idrar yolu enfeksiyonu. İdrar tahlili yapılmalı ve gerekirse ultrason tetkiki planlanmalı.",
+    summary:"Muhtemel idrar yolu enfeksiyonu. İdrar tahlili yapılmalı ve gerekirse ultrason tetkiki planlanmalı.",
     created_at: new Date("2024-03-15T10:00:00"),
     updated_at: new Date("2024-03-15T11:00:00"),
   },
@@ -116,7 +122,7 @@ export const mockSessions: Session[] = [
     story: null,
     clinical_findings: null,
     treatment: null,
-    insights: null,
+    summary: null,
     created_at: new Date("2024-03-14T15:30:00"),
     updated_at: new Date("2024-03-14T16:15:00"),
   },
@@ -132,7 +138,7 @@ export const mockSessions: Session[] = [
     story: null,
     clinical_findings: null,
     treatment: null,
-    insights: null,
+    summary: null,
     created_at: new Date("2024-03-13T09:00:00"),
     updated_at: new Date("2024-03-13T09:45:00"),
   },
@@ -148,7 +154,7 @@ export const mockSessions: Session[] = [
     story: "Hasta günde birkaç kez kapıları ve elektronik cihazları kontrol etme ihtiyacı hissediyor. Aşırı el yıkama davranışı mevcut. Bu durumlar günlük yaşamını ve iş performansını olumsuz etkiliyor.",
     clinical_findings: "Kompulsif kontrol ve temizlik davranışları belirgin. Anksiyete seviyesi yüksek.",
     treatment: "Maruz bırakma ve tepki önleme terapisi başlatıldı.",
-    insights: "OKB semptomları belirgin. Davranışsal terapi ve ilaç tedavisi birlikte yürütülmeli.",
+    summary: "OKB semptomları belirgin. Davranışsal terapi ve ilaç tedavisi birlikte yürütülmeli.",
     created_at: new Date("2024-03-12T14:00:00"),
     updated_at: new Date("2024-03-12T15:00:00"),
   },
@@ -164,7 +170,7 @@ export const mockSessions: Session[] = [
     story: "Hasta iş yerinde sunum yapmakta ve toplantılara katılmakta zorlanıyor. Sosyal ortamlarda yoğun kaygı yaşıyor ve bu durumlardan kaçınma davranışı gösteriyor.",
     clinical_findings: "Sosyal durumlarda belirgin anksiyete ve kaçınma davranışları mevcut.",
     treatment: "Bilişsel davranışçı terapi ve kademeli maruz bırakma planlandı.",
-    insights: "Sosyal anksiyete bozukluğu tanısı konuldu. Sistematik duyarsızlaştırma tekniği uygulanacak.",
+    summary: "Sosyal anksiyete bozukluğu tanısı konuldu. Sistematik duyarsızlaştırma tekniği uygulanacak.",
     created_at: new Date("2024-03-11T11:00:00"),
     updated_at: new Date("2024-03-11T12:00:00"),
   },
@@ -180,7 +186,7 @@ export const mockSessions: Session[] = [
     story: null,
     clinical_findings: null,
     treatment: null,
-    insights: null,
+    summary: null,
     created_at: new Date("2024-03-16T09:00:00"),
     updated_at: new Date("2024-03-16T09:30:00"),
   },

@@ -10,7 +10,7 @@ export interface Session {
     story: string | null;
     clinical_findings: string | null;
     treatment: string | null;
-    insights: string | null;
+    summary: string | null;
     created_at: Date;
     updated_at: Date;
 } 
@@ -22,6 +22,7 @@ export interface Patient {
     gender: "male" | "female" | "other";
     age: number;
     diagnosis: string | null;
+    progress_summary: string | null;
     profile_color: {
         light: string;
         dark: string;

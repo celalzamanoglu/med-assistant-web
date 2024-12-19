@@ -3,7 +3,7 @@
 import { Session } from "@/declarations";
 import { Avatar } from "@nextui-org/react";
 import { getInitials } from "@/utils";
-import { SessionInsights } from "./SessionInsights";
+import { SessionInsights } from "./SessionSummary";
 import { SessionCard } from "./SessionCard";
 
 interface SessionDetailsProps {
@@ -43,7 +43,7 @@ export function SessionDetails({ session }: SessionDetailsProps) {
       </div>
 
       {/* Insights Section */}
-      <SessionInsights insights={session.insights} />
+      <SessionInsights insights={session.summary} />
 
       {/* Session Details Cards */}
       <div className="space-y-4">

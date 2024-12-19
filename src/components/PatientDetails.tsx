@@ -15,7 +15,7 @@ export function PatientDetails({ patient }: PatientDetailsProps) {
     <div className="space-y-6 w-full">
       <PatientHeader name={patient.name} />
       <DiagnosisInfo diagnosis={patient.diagnosis} />
-      <ProgressSummary patientId={patient.id} />
+      <ProgressSummary summary={patient.progress_summary} />
       <PastSessions patientId={patient.id} />
     </div>
   );
