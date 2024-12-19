@@ -1,17 +1,9 @@
 "use client";
 
 import { Avatar } from "@nextui-org/react";
-
+import { getInitials } from "@/utils";
 interface PatientHeaderProps {
   name: string;
-}
-
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
 }
 
 export function PatientHeader({ name }: PatientHeaderProps) {

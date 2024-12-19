@@ -2,6 +2,7 @@
 
 import { Avatar } from "@nextui-org/react";
 import { useTheme } from "next-themes";
+import { getInitials } from "@/utils";
 
 interface PatientsListItemProps {
   name: string;
@@ -12,14 +13,6 @@ interface PatientsListItemProps {
     light: string;
     dark: string;
   };
-}
-
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
 }
 
 export function PatientsListItem({

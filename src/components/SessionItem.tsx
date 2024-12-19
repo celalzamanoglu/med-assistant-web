@@ -3,6 +3,7 @@
 import { Card, CardBody, Chip, Avatar } from "@nextui-org/react";
 import { MicIcon, NoteIcon, AudioWaveIcon } from "@components";
 import { Session } from "@/declarations";
+import { getInitials } from "@/utils";
 
 const TypeIcon = {
   dictate: MicIcon,
@@ -17,14 +18,6 @@ const StatusChip = {
   stopped: { color: "warning" as const, text: "Beklemede" },
   generating: { color: "secondary" as const, text: "Notlar Oluşturuluyor" },
 };
-
-function getInitials(name: string) {
-  return name
-    .split(" ")
-    .map((word) => word[0])
-    .join("")
-    .toUpperCase();
-}
 
 interface SessionItemProps {
   session: Session;
@@ -64,7 +57,7 @@ export function SessionItem({ session }: SessionItemProps) {
           </div>
         </div>
 
-        <p className="text-sm line-clamp-2 mb-4">{session.content}</p>
+        <p className="text-sm line-clamp-2 mb-4">{session.story}</p>
 
         <div className="border-t border-divider pt-2">
           <div className="flex justify-between items-center text-xs text-default-400">

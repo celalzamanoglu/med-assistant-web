@@ -4,9 +4,13 @@ export interface Session {
     patientName: string;
     type: "dictate" | "note" | "record";
     status: "in_progress" | "stopped" | "generating" | "error" | "done";
+    title: string; 
     diagnosis: string | null;
-    title: string;
-    content: string;
+    complaint: string | null;
+    story: string | null;
+    clinical_findings: string | null;
+    treatment: string | null;
+    insights: string | null;
     created_at: Date;
     updated_at: Date;
 } 
@@ -17,7 +21,7 @@ export interface Patient {
     category: "personal" | "couple" | "child";
     gender: "male" | "female" | "other";
     age: number;
-    diagnosis: string;
+    diagnosis: string | null;
     profile_color: {
         light: string;
         dark: string;

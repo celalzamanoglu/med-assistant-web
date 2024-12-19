@@ -3,7 +3,7 @@
 import { Card, CardBody } from "@nextui-org/react";
 
 interface DiagnosisInfoProps {
-  diagnosis?: string;
+  diagnosis?: string | null;
 }
 
 export function DiagnosisInfo({ diagnosis }: DiagnosisInfoProps) {
