@@ -16,7 +16,7 @@ export function SummaryAccordion({
   return (
     <Accordion
       variant="shadow"
-      className="p-0 bg-purple-50 dark:bg-purple-900/20 rounded-xl overflow-hidden"
+      className="p-0 bg-purple-50 dark:bg-purple-950/40 rounded-xl overflow-hidden"
       defaultExpandedKeys={defaultOpen ? ["summary"] : undefined}
     >
       <AccordionItem
@@ -24,10 +24,10 @@ export function SummaryAccordion({
         aria-label={title}
         title={title}
         classNames={{
-          content: "text-default-700 dark:text-default-200",
+          content: "text-default-700 dark:text-default-300",
           title: "text-lg font-semibold text-purple-800 dark:text-purple-200",
           trigger:
-            "px-6 py-4 bg-purple-100/80 dark:bg-purple-800/30 hover:bg-purple-200/80 dark:hover:bg-purple-800/40 transition-colors",
+            "px-6 py-4 bg-purple-100/80 dark:bg-purple-900/60 hover:bg-purple-200/80 dark:hover:bg-purple-900/80 transition-colors",
           indicator: "text-purple-800 dark:text-purple-200",
           base: "group-[.is-splitted]:border-none",
         }}
